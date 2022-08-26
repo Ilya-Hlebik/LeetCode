@@ -49,5 +49,6 @@ public class MaximumSubarray {
         System.out.println(maximumSubarray.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -7, 4, 4}));
         System.out.println(maximumSubarray.maxSubArray(new int[]{1}));
         System.out.println(maximumSubarray.maxSubArray(new int[]{-5, -4, -1, -7, -8}));
+        System.out.println(maximumSubarray.maxSubArray(new int[]{5,4,-1,7,8}));
     }
 }
