@@ -5,7 +5,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
+//1
 public class RemoveAllAdjacentDuplicatesInStringII {
     public static void main(String[] args) {
 
@@ -15,12 +15,12 @@ public class RemoveAllAdjacentDuplicatesInStringII {
 
     public String removeDuplicates(String s, int k) {
         StringBuilder stringBuilder = new StringBuilder();
-        int count[] = new int[s.length()];
+        int[] count = new int[s.length()];
         for (char c : s.toCharArray()) {
             stringBuilder.append(c);
             int last = stringBuilder.length() - 1;
             count[last] = 1 + (last > 0 && stringBuilder.charAt(last) == stringBuilder.charAt(last - 1) ? count[last - 1] : 0);
-            if (count[last] >= k) {
+            if (count[last] == k) {
                 stringBuilder.delete(stringBuilder.length() - k, stringBuilder.length());
             }
         }

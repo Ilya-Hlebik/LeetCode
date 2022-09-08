@@ -13,7 +13,7 @@ abs(x) is defined as:
 x for x >= 0.
 -x for x < 0.*/
 public class MaximumNumberOfPointsWithCost {
-    public long maxPoints2(int[][] points) {
+    /*public long maxPoints2(int[][] points) {
         int m = points.length;
         int n = points[0].length;
         long[] pre = new long[n];
@@ -42,7 +42,7 @@ public class MaximumNumberOfPointsWithCost {
         for (int i = 0; i < n; ++i)
             ans = Math.max(ans, pre[i]);
         return ans;
-    }
+    }*/
     public long maxPoints(int[][] points) {
         long ans = 0;
         int n = points[0].length;

@@ -1,4 +1,4 @@
-package arrays_and_strings;
+package Interview_prepare;
 
 /*
 * Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
@@ -26,6 +26,7 @@ Constraints:
 1 <= nums.length <= 105
 -104 <= nums[i] <= 104
 */
+//2
 public class MaximumSubarray {
 
     public int maxSubArray(int[] nums) {
@@ -36,10 +37,7 @@ public class MaximumSubarray {
                 initSum = 0;
             }
             initSum += num;
-            if (initSum > maxSum) {
-                maxSum = initSum;
-            }
-
+            maxSum = Math.max(initSum, maxSum);
         }
         return maxSum;
     }
@@ -49,6 +47,6 @@ public class MaximumSubarray {
         System.out.println(maximumSubarray.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -7, 4, 4}));
         System.out.println(maximumSubarray.maxSubArray(new int[]{1}));
         System.out.println(maximumSubarray.maxSubArray(new int[]{-5, -4, -1, -7, -8}));
-        System.out.println(maximumSubarray.maxSubArray(new int[]{5,4,-1,7,8}));
+        System.out.println(maximumSubarray.maxSubArray(new int[]{5, 4, -1, 7, 8}));
     }
 }
