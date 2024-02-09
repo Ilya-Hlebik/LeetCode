@@ -5,32 +5,19 @@ import Chapter_6_linked_list.ListNode;
 public class Solution {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode result = null;
-        ListNode temp = null;
+        ListNode result = new ListNode();
+        ListNode temp = result;
         while (list1 != null || list2 != null) {
             if (list2 == null || (list1 != null && list1.val < list2.val)) {
-                if (result == null) {
-                    result = new ListNode(list1.val);
-                    temp = result;
-                } else {
-                    ListNode nextNode = new ListNode(list1.val);
-                    temp.next = nextNode;
-                    temp = temp.next;
-                }
+                temp.next = list1;
                 list1 = list1.next;
             } else {
-                if (result == null) {
-                    result = new ListNode(list2.val);
-                    temp = result;
-                } else {
-                    ListNode nextNode = new ListNode(list2.val);
-                    temp.next = nextNode;
-                    temp = temp.next;
-                }
+                temp.next = list2;
                 list2 = list2.next;
             }
+            temp = temp.next;
         }
-        return result;
+        return result.next;
     }
 
     public static void main(String[] args) {
