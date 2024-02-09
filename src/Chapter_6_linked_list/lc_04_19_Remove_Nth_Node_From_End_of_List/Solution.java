@@ -10,6 +10,9 @@ public class Solution {
         for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
+        if (fast == null){
+            return slow.next;
+        }
         while (fast.next!=null){
             fast = fast.next;
             slow = slow.next;
@@ -25,9 +28,9 @@ public class Solution {
         Solution solution = new Solution();
         ListNode listNode = new ListNode(1);
         listNode.next = new ListNode(2);
-/*        listNode.next.next = new ListNode(3);
+        listNode.next.next = new ListNode(3);
         listNode.next.next.next = new ListNode(4);
-        listNode.next.next.next.next = new ListNode(5) ;*/
+        listNode.next.next.next.next = new ListNode(5) ;
         ListNode listNode1 = solution.removeNthFromEnd(listNode, 2);
         System.out.println();
     }
