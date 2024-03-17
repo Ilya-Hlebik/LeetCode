@@ -1,39 +1,45 @@
 package Chapter_11_graphs.lc_08_207_Course_Schedule;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class Solution2 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         Map<Integer, Set<Integer>> toDoMap = new HashMap<>();
-        for (int i = 0; i < prerequisites.length; i++) {
-            Set<Integer> orDefault = toDoMap.getOrDefault(prerequisites[i][0], new HashSet<>());
-            orDefault.add(prerequisites[i][1]);
-            toDoMap.put(prerequisites[i][0], orDefault);
+        for (int i = 0; i < numCourses; i++) {
+            toDoMap.put(i, new HashSet<>());
         }
-        boolean needContinue = true;
-        while (needContinue) {
-            Integer tobeRemoved = null;
-            needContinue = false;
-            for (Map.Entry<Integer, Set<Integer>> entry : toDoMap.entrySet()) {
-                Set<Integer> value = entry.getValue();
-                Iterator<Integer> iterator = value.iterator();
-                while (iterator.hasNext()){
-                    Integer next = iterator.next();
-                    if (!toDoMap.containsKey(next)){
-                        value.remove(next);
-                    }
-                }
-                if (value.isEmpty()){
-                    tobeRemoved = entry.getKey();
-                    needContinue = true;
-                    break;
-                }
-            }
-            if (tobeRemoved != null){
-                toDoMap.remove(tobeRemoved);
+        for (int[] prerequisite : prerequisites) {
+            Set<Integer> orDefault = toDoMap.getOrDefault(prerequisite[0], new HashSet<>());
+            orDefault.add(prerequisite[1]);
+            toDoMap.put(prerequisite[0], orDefault);
+        }
+        Set<Integer> visited = new HashSet<>();
+        for (int i = 0; i < numCourses; i++) {
+           if (!dfs(i, visited, toDoMap)){
+               return false;
+           }
+        }
+        return true;
+    }
+    public boolean dfs(int crs, Set<Integer> visited,   Map<Integer, Set<Integer>> toDoMap){
+        if (visited.contains(crs)){
+            return false;
+        }
+        if (toDoMap.get(crs).isEmpty()){
+            return true;
+        }
+        visited.add(crs);
+        for (Integer integer : toDoMap.get(crs)) {
+            if (!dfs(integer,visited, toDoMap)){
+                return false;
             }
         }
-        return toDoMap.isEmpty();
+        visited.remove(crs);
+        toDoMap.put(crs, new HashSet<>());
+        return true;
     }
 
     public static void main(String[] args) {
@@ -45,6 +51,7 @@ public class Solution2 {
                 {1, 4},
                 {3, 4}
         };
+        //4, 3 1, 0, 2
         System.out.println(solution.canFinish(5, arr));
     }
 }
