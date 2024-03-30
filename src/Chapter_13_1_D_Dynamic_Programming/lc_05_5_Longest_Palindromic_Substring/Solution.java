@@ -6,8 +6,8 @@ public class Solution {
         int maxLength = s.length();
         while (maxLength > 0) {
             for (int i = 0; i + maxLength - 1 < s.length(); i++) {
-                if (s.charAt(i)!= s.charAt(i + maxLength-1)){
-                  continue;
+                if (s.charAt(i) != s.charAt(i + maxLength - 1)) {
+                    continue;
                 }
                 StringBuilder substring = new StringBuilder(s.substring(i, i + maxLength));
                 if (substring.toString().equals(substring.reverse().toString())) {
