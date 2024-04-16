@@ -13,7 +13,7 @@ public class Solution {
         if (index == nums.length - 1) {
             return jumps;
         }
-        if (memo[index] != 0) {
+        if (memo[index] != 0 && memo[index]!= Integer.MAX_VALUE && memo[index] < jumps) {
             return memo[index];
         }
         memo[index] = Integer.MAX_VALUE;
@@ -25,6 +25,6 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.jump(new int[]{1, 2, 1, 1, 1}));
+        System.out.println(solution.jump(new int[]{5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5}));
     }
 }
