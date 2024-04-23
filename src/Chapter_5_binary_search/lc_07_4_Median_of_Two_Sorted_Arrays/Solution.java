@@ -1,4 +1,4 @@
-package binary_search.lc_07_4_Median_of_Two_Sorted_Arrays;
+package Chapter_5_binary_search.lc_07_4_Median_of_Two_Sorted_Arrays;
 
 import java.util.ArrayList;
 import java.util.List;

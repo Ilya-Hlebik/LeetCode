@@ -1,4 +1,4 @@
-package binary_search.lc_02_74_Search_a_2D_Matrix;
+package Chapter_5_binary_search.lc_02_74_Search_a_2D_Matrix;
 
 public class Solution {
 

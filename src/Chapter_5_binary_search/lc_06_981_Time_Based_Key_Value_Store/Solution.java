@@ -1,4 +1,4 @@
-package binary_search.lc_06_981_Time_Based_Key_Value_Store;
+package Chapter_5_binary_search.lc_06_981_Time_Based_Key_Value_Store;
 
 import java.util.ArrayList;
 import java.util.HashMap;

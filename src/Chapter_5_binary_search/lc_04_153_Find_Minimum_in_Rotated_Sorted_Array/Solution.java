@@ -1,9 +1,9 @@
-package binary_search.lc_04_153_Find_Minimum_in_Rotated_Sorted_Array;
+package Chapter_5_binary_search.lc_04_153_Find_Minimum_in_Rotated_Sorted_Array;
 
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.findMin(new int[]{3, 4, 5, 1, 2}));
+    //    System.out.println(solution.findMin(new int[]{3, 4, 5, 1, 2}));
         System.out.println(solution.findMin(new int[]{4, 5, 6, 7, 0, 1, 2}));
         System.out.println(solution.findMin(new int[]{11, 13, 15, 17}));
         System.out.println(solution.findMin(new int[]{2, 1}));

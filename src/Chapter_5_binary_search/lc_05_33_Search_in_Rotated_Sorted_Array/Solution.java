@@ -1,4 +1,4 @@
-package binary_search.lc_05_33_Search_in_Rotated_Sorted_Array;
+package Chapter_5_binary_search.lc_05_33_Search_in_Rotated_Sorted_Array;
 
 public class Solution {
     public int search(int[] nums, int target) {
@@ -17,7 +17,7 @@ public class Solution {
         if (midVal == target) {
             return mid;
         } else if (midVal >= nums[min]) {
-            if (target > nums[mid] || target < nums[min]) {
+            if (target > midVal || target < nums[min]) {
                 result = search(nums, target, mid + 1, max);
             } else {
                 result = search(nums, target, min, mid - 1);
