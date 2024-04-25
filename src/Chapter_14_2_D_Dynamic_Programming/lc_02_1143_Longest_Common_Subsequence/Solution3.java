@@ -1,0 +1,19 @@
+package Chapter_14_2_D_Dynamic_Programming.lc_02_1143_Longest_Common_Subsequence;
+
+public class Solution3 {
+
+    public int longestCommonSubsequence(String text1, String text2) {
+        return dfs(text1, text2, 0, 0);
+    }
+
+    private int dfs(String text1, String text2, int x, int y) {
+        if (x > text1.length()-1 || y > text2.length()-1) {
+            return 0;
+        }
+        if (text1.charAt(x) == text2.charAt(y)) {
+            return 1 + dfs(text1, text2, x + 1, y + 1);
+        } else {
+            return Math.max(dfs(text1, text2, x + 1, y), dfs(text1, text2, x, y + 1));
+        }
+    }
+}

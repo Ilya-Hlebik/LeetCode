@@ -16,7 +16,6 @@ public class Solution {
             int y = point[1];
             minHeap.add(Map.entry(x,y));
         }
-        minHeap.remove();
         int[][] result = new int[k][2];
         for (int i = 0; i < k; i++) {
             Map.Entry<Integer, Integer> poll = minHeap.poll();
