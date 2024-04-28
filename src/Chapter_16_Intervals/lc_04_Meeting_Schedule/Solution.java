@@ -1,5 +1,7 @@
 package Chapter_16_Intervals.lc_04_Meeting_Schedule;
 
+import Chapter_16_Intervals.Interval;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -17,14 +19,5 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-    }
-}
-
-class Interval {
-    public int start, end;
-
-    public Interval(int start, int end) {
-        this.start = start;
-        this.end = end;
     }
 }
