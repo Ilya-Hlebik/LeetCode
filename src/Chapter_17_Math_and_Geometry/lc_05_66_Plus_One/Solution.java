@@ -9,28 +9,22 @@ public class Solution {
             return digits;
         } else {
             int[] res = new int[digits.length + 1];
+            int temp = 1;
             for (int i = digits.length - 1; i >= 0; i--) {
-                res[i+1] = digits[i];
+                int value = (digits[i] + temp) % 10;
+                temp = (digits[i] + temp) / 10;
+                res[i + 1] = value;
             }
-            for (int i = res.length - 1; i >= 0; i--) {
-                if (i == 0 && res[i] == 9) {
-                    res[0] = 1;
-                    res[1] = 0;
-                    return res;
-                }
-                if (res[i] == 9) {
-                    res[i] = 0;
-                } else {
-                    res[i]++;
-                    break;
-                }
+            if (temp != 0) {
+                res[0] = temp;
+                return res;
             }
-            return Arrays.copyOfRange(res, 1, res.length+1);
+            return Arrays.copyOfRange(res, 1, res.length);
         }
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(Arrays.toString(solution.plusOne(new int[]{9,9})));
+        System.out.println(Arrays.toString(solution.plusOne(new int[]{8, 9, 9, 9})));
     }
 }
