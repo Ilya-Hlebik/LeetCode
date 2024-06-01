@@ -12,8 +12,10 @@ public class Solution2 {
 
     public void function(List<List<Integer>> ans, int[] arr, int start) {
         if (start == arr.length) {
-            List<Integer> list = new ArrayList();
-            for (int i = 0; i < arr.length; i++) list.add(arr[i]);
+            List<Integer> list = new ArrayList<>();
+            for (int value : arr) {
+                list.add(value);
+            }
             ans.add(list);
             return;
         }
@@ -26,6 +28,9 @@ public class Solution2 {
     }
 
     public void swap(int[] arr, int a, int b) {
+        if (a == b){
+            return;
+        }
         int temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
