@@ -26,4 +26,9 @@ public class Solution4 {
         }
         return memo[amount] = ways;
     }
+
+    public static void main(String[] args) {
+        Solution4 solution2 = new Solution4();
+        System.out.println(solution2.coinChange(new int[]{1, 2, 5}, 11));
+    }
 }
