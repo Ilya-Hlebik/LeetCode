@@ -1,23 +1,28 @@
 package TopInterview150.Chapter_1_Array_String.lc_11_274_H_Index;
 
-import java.util.Arrays;
-
 public class Solution {
     public int hIndex(int[] citations) {
-        Arrays.sort(citations);
-        int h = 1;
-        int times = 0;
-        for (int i = citations.length-1; i >= 0; i--) {
-            if (citations[i] <= citations.length) {
-                h = citations[i];
-                times = Math.max(citations.length - i, times);
+        int n = citations.length;
+        int[] buckets = new int[n + 1];
+        for (int citation : citations) {
+            if (citation > citations.length - 1) {
+                buckets[citations.length]++;
+            } else {
+                buckets[citation]++;
             }
         }
-        return times;
+        int count = 0;
+        for (int i = citations.length; i >= 0; i--) {
+            count += buckets[i];
+            if (count >= i) {
+                return i;
+            }
+        }
+        return count;
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.hIndex(new int[]{1,3,1}));
+        System.out.println(solution.hIndex(new int[]{3, 0, 6, 1, 5}));
     }
 }
