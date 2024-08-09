@@ -12,27 +12,20 @@ public class Solution {
         List<Double> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        result.add((double) root.val);
         while (!queue.isEmpty()) {
             int size = queue.size();
             double currentValue = 0.0;
-            int count = 0;
             for (int i = 0; i < size; i++) {
                 TreeNode poll = queue.poll();
+                currentValue += poll.val;
                 if (poll.left != null) {
                     queue.add(poll.left);
-                    currentValue+=poll.left.val;
-                    count++;
                 }
                 if (poll.right != null) {
                     queue.add(poll.right);
-                    currentValue+=poll.right.val;
-                    count++;
                 }
             }
-            if (count!=0){
-                result.add(currentValue/count);
-            }
+            result.add(currentValue / size);
         }
         return result;
     }
