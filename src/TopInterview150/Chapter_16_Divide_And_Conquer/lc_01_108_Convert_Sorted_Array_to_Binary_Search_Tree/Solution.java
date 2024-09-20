@@ -1,4 +1,4 @@
-package TopInterview150.Chapter_15_Divide_And_Conquer.lc_01_108_Convert_Sorted_Array_to_Binary_Search_Tree;
+package TopInterview150.Chapter_16_Divide_And_Conquer.lc_01_108_Convert_Sorted_Array_to_Binary_Search_Tree;
 
 import Chapter_7_trees.TreeNode;
 

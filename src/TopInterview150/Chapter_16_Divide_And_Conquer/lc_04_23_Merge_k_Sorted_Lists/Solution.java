@@ -1,4 +1,4 @@
-package TopInterview150.Chapter_15_Divide_And_Conquer.lc_04_23_Merge_k_Sorted_Lists;
+package TopInterview150.Chapter_16_Divide_And_Conquer.lc_04_23_Merge_k_Sorted_Lists;
 
 import LeetCode75.Chapter_8_Linked_List.ListNode;
 

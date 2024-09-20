@@ -1,4 +1,4 @@
-package TopInterview150.Chapter_15_Divide_And_Conquer.lc_03_427_Construct_Quad_Tree;
+package TopInterview150.Chapter_16_Divide_And_Conquer.lc_03_427_Construct_Quad_Tree;
 
 public class Solution {
     public Node construct(int[][] grid) {

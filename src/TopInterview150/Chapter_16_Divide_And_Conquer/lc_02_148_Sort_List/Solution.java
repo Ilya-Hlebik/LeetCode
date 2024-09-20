@@ -1,4 +1,4 @@
-package TopInterview150.Chapter_15_Divide_And_Conquer.lc_02_148_Sort_List;
+package TopInterview150.Chapter_16_Divide_And_Conquer.lc_02_148_Sort_List;
 
 import LeetCode75.Chapter_8_Linked_List.ListNode;
 
