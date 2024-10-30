@@ -18,7 +18,7 @@ public class Solution {
                 result.add(matrix[i][right - 1]);
             }
 
-            if (!(left < right-1 && top + 1 < bottom)) {
+            if (!(left < right - 1 && top + 1 < bottom)) {
                 break;
             }
             for (int i = right - 2; i >= left; i--) {
