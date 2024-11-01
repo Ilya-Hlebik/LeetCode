@@ -7,37 +7,42 @@ import java.util.Map;
 
 public class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
-        if (words[0].length() * words.length > s.length()) {
+        if (words.length == 0 || s.length() < words[0].length() * words.length) {
             return new ArrayList<>();
         }
         List<Integer> result = new ArrayList<>();
-        Map<String, Integer> counts = new HashMap<>();
+        Map<String, Integer> wordCount = new HashMap<>();
         for (String word : words) {
-            counts.put(word, counts.getOrDefault(word, 0) + 1);
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
-        int step = words[0].length();
-        int windowSize = step * words.length;
-        for (int i = 0; i <= s.length()-windowSize; i++) {
+        int wordLen = words[0].length();
+        for (int i = 0; i < wordLen; i++) {
+            int match = 0;
+            int left = i;
+            int right = i;
             Map<String, Integer> seen = new HashMap<>();
-            int l = i;
-            int r = i + windowSize;
-            while (l < r) {
-                String word = s.substring(l, l+ step);
-                if (counts.containsKey(word)) {
-                    Integer currentCount = seen.getOrDefault(word, 0) +1;
-                    seen.put(word, currentCount);
-                    if (currentCount>counts.get(word)){
-                        break;
-                    }
-                    l+=step;
-                }
-                else {
-                    break;
-                }
 
-            }
-            if (l==r){
-                result.add(i);
+            while (right + wordLen <= s.length()) {
+                String word = s.substring(right, right + wordLen);
+                right += wordLen;
+                if (wordCount.containsKey(word)) {
+                    match++;
+                    seen.put(word, seen.getOrDefault(word, 0) + 1);
+                    int currentWordCount = wordCount.get(word);
+                    while (seen.get(word) > currentWordCount) {
+                        String leftWord = s.substring(left, left + wordLen);
+                        match--;
+                        seen.put(leftWord, seen.get(leftWord) - 1);
+                        left += wordLen;
+                    }
+                    if (match == words.length) {
+                        result.add(left);
+                    }
+                } else {
+                    seen.clear();
+                    match = 0;
+                    left = right;
+                }
             }
         }
         return result;
@@ -45,6 +50,8 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.findSubstring("wordgoodgoodgoodbestword", new String[]{"word","good","best","good"}));
+        long start = System.currentTimeMillis();
+        System.out.println(solution.findSubstring("wordgoodgoodgoodbestword", new String[]{"word", "good", "best", "good"}));
+        System.out.println(System.currentTimeMillis() - start);
     }
 }
