@@ -4,44 +4,55 @@ import java.util.Stack;
 
 public class Solution {
     public int calculate(String s) {
-        if (s.trim().matches("^[0-9]*$")) {
-            return Integer.parseInt(s.trim());
-        }
         Stack<String> stackNumbers = new Stack<>();
         Stack<Boolean> inverse = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isDigit(c)) {
-
+                StringBuilder number = new StringBuilder();
+                number.append(c);
+                while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+                    number.append(s.charAt(++i));
+                }
+                stackNumbers.add(number.toString());
             } else if (c != '(' && c != ')' && c != ' ') {
                 if (!inverse.isEmpty() && inverse.peek()) {
                     if (c == '-') {
-                        if (!stackNumbers.isEmpty() && (stackNumbers.peek() == '-' || stackNumbers.peek() == '+')) {
+                        if (!stackNumbers.isEmpty() && (stackNumbers.peek().equals("-") || stackNumbers.peek().equals("+"))) {
                             stackNumbers.pop();
                         }
-                        stackNumbers.push('+');
+                        stackNumbers.push("+");
                     } else if (c == '+') {
-                        stackNumbers.push('-');
+                        stackNumbers.push("-");
                     }
                 } else {
-                    stackNumbers.push(c);
+                    stackNumbers.push(String.valueOf(c));
                 }
             } else if (c == '(') {
-                inverse.push(!stackNumbers.isEmpty() && stackNumbers.peek() == '-');
+                inverse.push(!stackNumbers.isEmpty() && stackNumbers.peek().equals("-"));
             } else if (c == ')') {
                 inverse.pop();
             }
         }
         int sum = 0;
         while (!stackNumbers.isEmpty()) {
-            int firstNumber = Character.digit(stackNumbers.pop(), 10);
-            Character sign;
+            int firstNumber = Integer.parseInt(stackNumbers.pop());
+            String sign = null;
             if (!stackNumbers.isEmpty()) {
-                sign = stackNumbers.pop();
+                while (!stackNumbers.isEmpty() && (stackNumbers.peek().equals("+") || stackNumbers.peek().equals("-"))) {
+                    String newSign = stackNumbers.pop();
+                    if (sign == null) {
+                        sign = newSign;
+                    } else if (sign.equals("-") && newSign.equals("-")) {
+                        sign = "+";
+                    } else if (sign.equals("+") && newSign.equals("-")) {
+                        sign = newSign;
+                    }
+                }
             } else {
-                sign = '+';
+                sign = "+";
             }
-            if (sign == '-') {
+            if (sign.equals("-")) {
                 sum -= firstNumber;
             } else {
                 sum += firstNumber;
@@ -52,6 +63,6 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.calculate("1-11"));
+        System.out.println(solution.calculate("- (3 - (- (4 + 5) ) )"));
     }
 }
