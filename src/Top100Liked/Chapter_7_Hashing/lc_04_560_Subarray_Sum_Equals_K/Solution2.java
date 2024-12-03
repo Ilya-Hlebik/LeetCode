@@ -17,4 +17,9 @@ public class Solution2 {
         }
         return count;
     }
+
+    public static void main(String[] args) {
+        Solution2 solution = new Solution2();
+        solution.subarraySum(new int[]{1,2,3,1,3,2,1,-6,2}, 3);
+    }
 }
