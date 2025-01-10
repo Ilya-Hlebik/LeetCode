@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_3_Binary_Tree.lc_07_153_Find_Minimum_in_Rotated_Sorted_Array;
+package Top100Liked.Chapter_2_BinarySearch.lc_07_153_Find_Minimum_in_Rotated_Sorted_Array;
 
 public class Solution {
     public int findMin(int[] nums) {

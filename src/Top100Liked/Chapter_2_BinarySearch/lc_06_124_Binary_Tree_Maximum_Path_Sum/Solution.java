@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_3_Binary_Tree.lc_06_124_Binary_Tree_Maximum_Path_Sum;
+package Top100Liked.Chapter_2_BinarySearch.lc_06_124_Binary_Tree_Maximum_Path_Sum;
 
 import Chapter_7_trees.TreeNode;
 

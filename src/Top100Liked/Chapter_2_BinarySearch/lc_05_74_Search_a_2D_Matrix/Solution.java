@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_3_Binary_Tree.lc_05_74_Search_a_2D_Matrix;
+package Top100Liked.Chapter_2_BinarySearch.lc_05_74_Search_a_2D_Matrix;
 
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {

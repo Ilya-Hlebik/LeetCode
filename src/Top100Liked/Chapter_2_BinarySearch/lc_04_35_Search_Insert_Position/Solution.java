@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_3_Binary_Tree.lc_04_35_Search_Insert_Position;
+package Top100Liked.Chapter_2_BinarySearch.lc_04_35_Search_Insert_Position;
 
 public class Solution {
 

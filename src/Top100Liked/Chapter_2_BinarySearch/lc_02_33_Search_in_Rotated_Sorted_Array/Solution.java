@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_3_Binary_Tree.lc_02_33_Search_in_Rotated_Sorted_Array;
+package Top100Liked.Chapter_2_BinarySearch.lc_02_33_Search_in_Rotated_Sorted_Array;
 
 public class Solution {
     public int search(int[] nums, int target) {

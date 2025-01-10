@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_3_Binary_Tree.lc_03_34_Find_First_and_Last_Position_of_Element_in_Sorted_Array;
+package Top100Liked.Chapter_2_BinarySearch.lc_03_34_Find_First_and_Last_Position_of_Element_in_Sorted_Array;
 
 import java.util.Arrays;
 
