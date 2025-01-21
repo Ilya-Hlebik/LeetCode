@@ -3,8 +3,6 @@ package Top100Liked.Chapter_3_Binary_Tree.lc_12_236_Lowest_Common_Ancestor_of_a_
 import Chapter_7_trees.TreeNode;
 
 public class Solution2 {
-    TreeNode lowest = null;
-    int lowestLevel = Integer.MIN_VALUE;
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) {
@@ -18,7 +16,6 @@ public class Solution2 {
         }
         return left != null ? left : right;
     }
-
 
     public static void main(String[] args) {
         Solution2 solution = new Solution2();
