@@ -14,9 +14,19 @@ public class Solution {
         if (root == null) {
             return -1;
         }
-        int left = 1 + dfs(root.left);
-        int right = 1 + dfs(root.right);
-        max = Math.max(max, left + right);
+        int left =  dfs(root.left);
+        int right =  dfs(root.right);
+        max = Math.max(left + right + 2, max);
         return 1 + Math.max(left, right);
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        solution.diameterOfBinaryTree(root);
     }
 }
