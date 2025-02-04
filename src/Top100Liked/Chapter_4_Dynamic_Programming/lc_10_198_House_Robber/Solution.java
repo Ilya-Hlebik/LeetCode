@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_4_Dynamic_Programming.lc_09_198_House_Robber;
+package Top100Liked.Chapter_4_Dynamic_Programming.lc_10_198_House_Robber;
 
 public class Solution {
     public int rob(int[] nums) {

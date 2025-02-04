@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_4_Dynamic_Programming.lc_08_152_Maximum_Product_Subarray;
+package Top100Liked.Chapter_4_Dynamic_Programming.lc_09_152_Maximum_Product_Subarray;
 
 public class Solution {
     public int maxProduct(int[] nums) {

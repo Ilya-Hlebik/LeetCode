@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_4_Dynamic_Programming.lc_07_139_Word_Break;
+package Top100Liked.Chapter_4_Dynamic_Programming.lc_08_139_Word_Break;
 
 import java.util.HashMap;
 import java.util.List;

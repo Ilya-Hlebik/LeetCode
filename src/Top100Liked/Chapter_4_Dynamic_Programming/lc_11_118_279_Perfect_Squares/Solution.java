@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_4_Dynamic_Pogramming.lc_11_118_279_Perfect_Squares;
+package Top100Liked.Chapter_4_Dynamic_Programming.lc_11_118_279_Perfect_Squares;
 
 import java.util.ArrayList;
 import java.util.List;

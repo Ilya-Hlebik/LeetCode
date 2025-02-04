@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_4_Dynamic_Pogramming.lc_07_118_Pascals_Triangle;
+package Top100Liked.Chapter_4_Dynamic_Programming.lc_07_118_Pascals_Triangle;
 
 import java.util.ArrayList;
 import java.util.List;
