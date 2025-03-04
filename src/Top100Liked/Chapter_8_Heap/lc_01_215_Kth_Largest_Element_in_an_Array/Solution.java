@@ -4,10 +4,10 @@ import java.util.PriorityQueue;
 
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2,o1));
+        PriorityQueue<Integer> queue = new PriorityQueue<>( );
         for (int num : nums) {
             queue.add(num);
-            if (queue.size()>nums.length-1){
+            if (queue.size()>k){
                 queue.poll();
             }
         }
