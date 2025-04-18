@@ -1,4 +1,4 @@
-package Top100Liked.Chapter_13_Sliding_Window.lc_01_11_Container_With_Most_Water;
+package Top100Liked.Chapter_13_Two_Pointers.lc_01_11_Container_With_Most_Water;
 
 public class Solution {
     public int maxArea(int[] height) {
