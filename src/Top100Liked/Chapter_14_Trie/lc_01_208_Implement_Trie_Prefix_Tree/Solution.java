@@ -28,13 +28,11 @@ class Trie {
         Node current = node;
         for (int i = 0; i < charArray.length; i++) {
             char c = charArray[i];
-            if (current.children.containsKey(c)) {
-                current = current.children.get(c);
-            } else {
-                Node newNode = new Node(c, i == charArray.length - 1);
+            if (!current.children.containsKey(c)) {
+                Node newNode = new Node(i == charArray.length - 1);
                 current.children.put(c, newNode);
-                current = newNode;
             }
+            current = current.children.get(c);
         }
         current.terminal = true;
     }
@@ -43,11 +41,10 @@ class Trie {
         char[] charArray = word.toCharArray();
         Node current = node;
         for (char c : charArray) {
-            if (current.children.containsKey(c)) {
-                current = current.children.get(c);
-            } else {
+            if (!current.children.containsKey(c)) {
                 return false;
             }
+            current = current.children.get(c);
         }
         return current.terminal;
     }
@@ -56,11 +53,10 @@ class Trie {
         char[] charArray = prefix.toCharArray();
         Node current = node;
         for (char c : charArray) {
-            if (current.children.containsKey(c)) {
-                current = current.children.get(c);
-            } else {
+            if (!current.children.containsKey(c)) {
                 return false;
             }
+            current = current.children.get(c);
         }
         return true;
     }
@@ -68,11 +64,9 @@ class Trie {
 
 class Node {
     Map<Character, Node> children = new HashMap<>();
-    char value;
     boolean terminal;
 
-    public Node(char value, boolean terminal) {
-        this.   value = value;
+    public Node(boolean terminal) {
         this.terminal = terminal;
     }
 
