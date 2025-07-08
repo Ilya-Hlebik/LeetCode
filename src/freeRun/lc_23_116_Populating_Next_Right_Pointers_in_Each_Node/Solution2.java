@@ -13,7 +13,7 @@ public class Solution2 {
         if (prev != null) {
             prev.next = root;
         }
-        dfs(root.left,prev!=null? prev.right:null);
+        dfs(root.left, prev != null ? prev.right : null);
         dfs(root.right, root.left);
     }
 }
