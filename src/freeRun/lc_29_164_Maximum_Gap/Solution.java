@@ -12,8 +12,8 @@ public class Solution {
         }
         int max = Arrays.stream(nums).max().getAsInt();
 
-        for (int position = 1; max / position > 0; position += 10) {
-            countSort(nums, position, max);
+        for (int position = 1; max / position > 0; position *= 10) {
+            countSort(nums, position);
         }
         int minGap = Integer.MIN_VALUE;
         for (int i = 1; i < nums.length; i++) {
@@ -22,9 +22,9 @@ public class Solution {
         return minGap;
     }
 
-    private void countSort(int[] nums, int position, int max) {
+    private void countSort(int[] nums, int position) {
         int[] count = new int[10];
-        int[] out = new int[nums.length + 1];
+        int[] out = new int[nums.length];
         for (int el : nums) {
             count[(el / position) % 10]++;
         }
