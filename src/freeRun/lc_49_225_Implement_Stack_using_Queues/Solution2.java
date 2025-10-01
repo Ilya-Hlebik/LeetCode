@@ -3,7 +3,7 @@ package freeRun.lc_49_225_Implement_Stack_using_Queues;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution {
+public class Solution2 {
     class MyStack {
         Queue<Integer> queue = new LinkedList<>();
 
@@ -12,12 +12,10 @@ public class Solution {
         }
 
         public void push(int x) {
-            Queue<Integer> swapQueue = new LinkedList<>();
-            swapQueue.add(x);
-            while (!queue.isEmpty()) {
-                swapQueue.add(queue.remove());
+            queue.add(x);
+            for (int i = 1; i < queue.size(); i++) {
+                queue.add(queue.remove());
             }
-            queue = swapQueue;
         }
 
         public int pop() {
@@ -32,7 +30,4 @@ public class Solution {
             return queue.isEmpty();
         }
     }
-
 }
-
-
