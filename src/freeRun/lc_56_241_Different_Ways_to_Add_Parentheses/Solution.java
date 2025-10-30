@@ -1,42 +1,52 @@
 package freeRun.lc_56_241_Different_Ways_to_Add_Parentheses;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Solution {
-    List<Integer> result = new ArrayList<>();
 
+    Map<String, List<Integer>> map = new HashMap<>();
     public List<Integer> diffWaysToCompute(String expression) {
-        char[] charArray = expression.toCharArray();
-        int currentNumber = 0;
-        List<Integer> numbers = new ArrayList<>();
-        List<Character> signs = new ArrayList<>();
-        for (char c : charArray) {
-            if (Character.isDigit(c)) {
-                currentNumber = currentNumber * 10 + (c - '0');
-            } else {
-                numbers.add(currentNumber);
-                currentNumber = 0;
-                signs.add(c);
+        if (map.containsKey(expression)) return map.get(expression);
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < expression.length(); i++) {
+
+            char c = expression.charAt(i);
+            if (c == '+' || c == '-' || c == '*') {
+                String leftString = expression.substring(0, i);
+                String rightString = expression.substring(i+1);
+                List<Integer> left = diffWaysToCompute(leftString);
+                List<Integer> right = diffWaysToCompute(rightString);
+                for (Integer l : left) {
+                    for (Integer r : right) {
+                        result.add(combine(l, r, c));
+                    }
+                }
             }
         }
-        compute(numbers, signs, 0, 0);
-        numbers.add(currentNumber);
+
+        if (result.isEmpty()) {
+            result.add(Integer.parseInt(expression));
+        }
+        map.put(expression, result);
         return result;
     }
 
-    private int compute(List<Integer> numbers, List<Character> signs, int i, int j) {
-        if (i == numbers.size() - 1) {
-            return numbers.get(i);
+    private Integer combine(Integer l, Integer r, char c) {
+        if (c == '+') {
+            return l + r;
         }
-        if (signs.get(j) == '+') {
-            int i1 = numbers.get(i) + compute(numbers, signs, i + 1, j + 1);
-            numbers.get(i) + numbers.get(i + 1);
+        if (c == '-') {
+            return l - r;
+        } else {
+            return l * r;
         }
     }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        solution.diffWaysToCompute("2*2-4*5");
+        System.out.println(solution.diffWaysToCompute("2*3-4*5"));
     }
 }
