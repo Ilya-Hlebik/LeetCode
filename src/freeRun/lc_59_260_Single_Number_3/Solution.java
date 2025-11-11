@@ -1,4 +1,4 @@
-package freeRun.lc_59_259_260_Single_Number_3;
+package freeRun.lc_59_260_Single_Number_3;
 
 public class Solution {
     public int[] singleNumber(int[] nums) {
