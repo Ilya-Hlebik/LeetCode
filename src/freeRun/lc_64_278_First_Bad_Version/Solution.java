@@ -1,4 +1,4 @@
-package freeRun.lc_63_278_First_Bad_Version;
+package freeRun.lc_64_278_First_Bad_Version;
 
 public class Solution {
     public int firstBadVersion(int n) {
