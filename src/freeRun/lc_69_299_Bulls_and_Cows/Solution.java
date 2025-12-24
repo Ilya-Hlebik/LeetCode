@@ -15,14 +15,14 @@ public class Solution {
             char s = secret.charAt(i);
             char g = guess.charAt(i);
             if (s == g) {
-                map.computeIfPresent(g,(character, integer) -> integer-1);
+                map.computeIfPresent(g, (character, integer) -> integer - 1);
                 countA++;
             }
         }
         for (int i = 0; i < secret.length(); i++) {
             char g = guess.charAt(i);
             char s = secret.charAt(i);
-           if (s != g&&map.containsKey(g)) {
+            if (s != g && map.containsKey(g)) {
                 Integer count = map.get(g);
                 if (count > 0) {
                     map.put(g, count - 1);
