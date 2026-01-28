@@ -1,4 +1,4 @@
-package freeRun.lc_73_306_Additive_Number;
+package freeRun.lc_72_306_Additive_Number;
 
 import java.math.BigInteger;
 
