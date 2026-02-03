@@ -20,19 +20,23 @@ public class Solution2 {
         public void update(int index, int val) {
             int pos = index + n;
             tree[pos] = val;
-            while (pos > 1) {
+            while (pos > 0) {
                 pos /= 2;
                 tree[pos] = tree[pos * 2] + tree[pos * 2 + 1];
             }
         }
 
         public int sumRange(int left, int right) {
-             left +=n;
-             right+=n;
-             int sum = 0;
+            left += n;
+            right += n;
+            int sum = 0;
             while (left <= right) {
-                if (left % 2 != 0) sum += tree[left++];
-                if (right % 2 == 0) sum += tree[right--];
+                if (tree[left] % 2 != 0) {
+                    sum += tree[left++];
+                }
+                if (tree[right] % 2 == 0) {
+                    sum += tree[right--];
+                }
                 left /= 2;
                 right /= 2;
             }
@@ -41,8 +45,7 @@ public class Solution2 {
     }
 
     public static void main(String[] args) {
-        Solution2 solution = new Solution2();
-        NumArray numArray = new NumArray(new int[]{5, 8, 13});
+        NumArray numArray = new NumArray(new int[]{1, 3, 5, 7});
         System.out.println(numArray.sumRange(0, 2));
         numArray.update(1, -1);
         numArray.update(2, 3);
